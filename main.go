@@ -7,16 +7,18 @@ import (
 )
 
 func hello(resp http.ResponseWriter, _ *http.Request) {
-	resp.Write([]byte("Hello there!\n"))
+	if _, err := resp.Write([]byte("Hello there!\n")); err != nil {
+		log.Fatal("Could not write hello response:", err)
+	}
 }
 
 func echoRequest(resp http.ResponseWriter, req *http.Request) {
 	buf := new(bytes.Buffer)
 	if err := req.Write(buf); err != nil {
-		log.Fatal("Couldn't get bytes of request:", err)
+		log.Fatal("Could not get bytes of request:", err)
 	}
 	if _, err := resp.Write(buf.Bytes()); err != nil {
-		log.Fatal("Couldn't write response:", err)
+		log.Fatal("Could not write echoRequest response:", err)
 	}
 }
 

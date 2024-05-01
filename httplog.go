@@ -15,10 +15,6 @@ type ResponseWriter struct {
 	status    int
 }
 
-func (rw *ResponseWriter) Header() http.Header {
-	return rw.ResponseWriter.Header()
-}
-
 func (rw *ResponseWriter) Write(msg []byte) (int, error) {
 	if _, err := rw.logBuffer.Write(msg); err != nil {
 		log.Fatal("unable to write logBuffer:", err)
