@@ -3,8 +3,8 @@
 In this example we create a simple middleware logger using Go's `net/http` package only.
 
 We log:
-  * Requests with log messages prefixed with `\[Request\] `
-  * Responses with log messages prefixed with `\[Response\] `
+  * Requests with log messages prefixed with `[Request] `
+  * Responses with log messages prefixed with `[Response] `
 
 When logging responses, in addition to reporting the response sent to the client, we also log the response status code and the time it took to process the response.
 
